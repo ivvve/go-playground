@@ -21,6 +21,34 @@ func TestAdd(t *testing.T) {
 	}
 }
 
+var subtractTests = []struct {
+	nums   []int
+	result int
+}{
+	{[]int{1, 2}, -1},
+	{[]int{2, 1}, 1},
+}
+
+func TestSubtract(t *testing.T) {
+	for _, test := range subtractTests {
+		assert.Equal(t, Subtract(test.nums[0], test.nums[1]), test.result)
+	}
+}
+
+var multiplyTests = []struct {
+	nums   []int
+	result int
+}{
+	{[]int{2, 1}, 2},
+	{[]int{2, -2}, -4},
+}
+
+func TestMultiply(t *testing.T) {
+	for _, test := range multiplyTests {
+		assert.Equal(t, Multiply(test.nums[0], test.nums[1]), test.result)
+	}
+}
+
 var divideTests = []struct {
 	nums     []int
 	result   float64
