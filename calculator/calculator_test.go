@@ -20,3 +20,25 @@ func TestAdd(t *testing.T) {
 		assert.Equal(t, Add(test.nums...), test.result)
 	}
 }
+
+var divideTests = []struct {
+	nums     []int
+	result   float64
+	hasError bool
+}{
+	{[]int{2, 1}, 2.0, false},
+	{[]int{1, 2}, 0.5, false},
+	{[]int{1, 0}, 0, true},
+}
+
+func TestDivide(t *testing.T) {
+	for _, test := range divideTests {
+		result, err := Divide(test.nums[0], test.nums[1])
+
+		if test.hasError {
+			assert.NotNil(t, err)
+		} else {
+			assert.Equal(t, result, test.result)
+		}
+	}
+}
